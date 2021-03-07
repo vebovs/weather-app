@@ -6,7 +6,6 @@ jobs:
     name: prettier
     runs-on: ubuntu-latest
     steps:
-      - name: Setup
       - uses: actions/checkout@v2
       - uses: bahmutov/npm-install@v1
 
