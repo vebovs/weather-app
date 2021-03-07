@@ -9,12 +9,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: bahmutov/npm-install@v1
 
-      - name: Extract branch name
         shell: bash
-      - run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
 
-      - name: Lint and commit changes
       - run: npm run format
       - run: git status
         id: ecr
