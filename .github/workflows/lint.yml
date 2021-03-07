@@ -10,7 +10,7 @@ jobs:
       - uses: bahmutov/npm-install@v1
 
         shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      - run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
 
       - run: npm run format
