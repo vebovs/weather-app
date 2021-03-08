@@ -2,7 +2,7 @@ name: lint
 on: [push, pull_request]
 
 jobs:
-  build:
+  linting:
     name: prettier
     runs-on: ubuntu-latest
     steps:
