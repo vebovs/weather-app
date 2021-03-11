@@ -5,9 +5,9 @@ import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
 import React from 'react';
 
 function Map() {
-  // Default coordinates set to Oslo central station
-  const position: LatLngExpression = [59.91174337077401, 10.750425582038146];
-  const zoom: number = 15;
+  // Default coordinates set to Trondheim, Norway
+  const position: LatLngExpression = [63.418265, 10.402862];
+  const zoom: number = 14;
 
   return (
     <MapContainer center={position} zoom={zoom} zoomControl={false}>
