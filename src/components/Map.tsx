@@ -13,20 +13,17 @@ import React, { useState } from 'react';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-let DefaultIcon = L.icon({
+L.Marker.prototype.options.icon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
   iconSize: [25, 41],
   iconAnchor: [13.5, 41],
 });
 
-L.Marker.prototype.options.icon = DefaultIcon;
-
 function LocationMarker() {
   const [position, setPosition] = useState<LatLngExpression>();
   const map = useMapEvents({
     click: (event) => {
-      console.log(event);
       setPosition(event.latlng);
     },
   });
