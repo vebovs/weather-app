@@ -1,7 +1,7 @@
 import L from 'leaflet';
 import type { LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
 import React from 'react';
 
 function Map() {
@@ -10,11 +10,12 @@ function Map() {
   const zoom: number = 15;
 
   return (
-    <MapContainer center={position} zoom={zoom} scrollWheelZoom={false}>
+    <MapContainer center={position} zoom={zoom} zoomControl={false}>
       <TileLayer
         attribution="&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
+      <ZoomControl position='bottomright' />
     </MapContainer>
   );
 }
