@@ -40,6 +40,7 @@ function Map() {
 
   return (
     <MapContainer
+      style={{ height: '100vh' }}
       center={position}
       zoom={zoom}
       zoomControl={false}
