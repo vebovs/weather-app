@@ -3,7 +3,9 @@ import { usePosition } from './Position';
 
 function Dashboard() {
   const { position } = usePosition()!;
-  console.log(position);
+
+  if (position) return <h1>Dashboard!</h1>;
+
   return null;
 }
 
