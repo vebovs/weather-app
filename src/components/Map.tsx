@@ -1,5 +1,4 @@
 import L from 'leaflet';
-import type { LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {
   MapContainer,
@@ -8,7 +7,9 @@ import {
   ZoomControl,
   Marker,
 } from 'react-leaflet';
-import React, { useState } from 'react';
+import React from 'react';
+
+import { usePosition } from './Position';
 
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
@@ -21,10 +22,10 @@ L.Marker.prototype.options.icon = L.icon({
 });
 
 function LocationMarker() {
-  const [position, setPosition] = useState<LatLngExpression>();
+  const { position, setPosition } = usePosition()!;
   const map = useMapEvents({
     click: (event) => {
-      setPosition(event.latlng);
+      setPosition([event.latlng.lat, event.latlng.lng]);
     },
   });
 
@@ -34,8 +35,7 @@ function LocationMarker() {
 }
 
 function Map() {
-  // Default coordinates set to Trondheim, Norway
-  const position: LatLngExpression = [63.418265, 10.402862];
+  const { position } = usePosition()!;
   const zoom: number = 14;
 
   return (
