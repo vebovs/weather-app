@@ -1,11 +1,14 @@
 import React from 'react';
+import { PositionProvider } from './components/Position';
+import Dashboard from './components/Dashboard';
 import Map from './components/Map';
 
 function App() {
   return (
-    <div>
+    <PositionProvider>
+      <Dashboard />
       <Map />
-    </div>
+    </PositionProvider>
   );
 }
 
